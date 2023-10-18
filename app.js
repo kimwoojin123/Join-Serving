@@ -13,9 +13,12 @@ http
     if (req.method === "POST") {
       let body = "";
       req.on("data", (chunk) => {
-        body += chunk;
+        body += chunk.toString();
       });
       req.on("end", () => {
+        const parseBody = queryString.parse(body);
+        const { id, pw } = parseBody;
+        console.log(id);
         res.writeHead(200);
         res.end(mainPage);
       });
