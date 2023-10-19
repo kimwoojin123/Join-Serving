@@ -4,10 +4,9 @@ const queryString = require("querystring");
 const subPage = require("./module/subpage");
 const signUpAsset = require("./module/signup");
 const titleText = require("./module/titletext");
-const idCheck = require("./idcheck");
-const pwCheck = require("./pwcheck");
-const emailCheck = require("./emailcheck");
-const { title } = require("process");
+const idCheck = require("./checkmodule/idcheck");
+const pwCheck = require("./checkmodule/pwcheck");
+const emailCheck = require("./checkmodule/emailcheck");
 
 http
   .createServer((req, res) => {
