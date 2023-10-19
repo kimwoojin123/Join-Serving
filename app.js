@@ -16,6 +16,14 @@ http
       });
     }
 
+    if (req.url === "/style/sub.css") {
+      fs.readFile("./style/sub.css", "utf8", (err, data) => {
+        res.writeHead(200, { "Content-Type": "text/css" });
+        res.write(data);
+        return res.end();
+      });
+    }
+
     if (req.url === "/") {
       readFile("index.html", "text/html");
     } else if (req.url === "/style/main.css") {
@@ -28,7 +36,7 @@ http
     // else if (req.url === "/style/sub.css" && req.method === "POST") {
     //   fs.readFile("./style/sub.css", "utf8", (err, data) => {
     //     res.writeHead(200, { "Content-Type": "text/css" });
-    //     res.write(data);
+    //     res.write("/style/sub.css");
     //     return res.end();
     //   });
     // }
