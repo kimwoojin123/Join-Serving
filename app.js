@@ -9,20 +9,30 @@ const emailCheck = require("./emailcheck");
 
 http
   .createServer((req, res) => {
-    fs.readFile("index.html", "utf8", (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(data);
-    });
-    fs.readFile("./style/sub.css", "utf8", (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/css" });
-      res.end(data);
-    });
-    fs.readFile("./style/main.css", "utf8", (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/css" });
-      res.end(data);
-    });
+    function readFile(url, content) {
+      fs.readFile(url, "utf8", (err, data) => {
+        res.writeHead(200, { "Content-Type": content });
+        res.end(data);
+      });
+    }
 
-    if (req.method === "POST") {
+    // fs.readFile("index.html", "utf8", (err, data) => {
+    //   res.writeHead(200, { "Content-Type": "text/html" });
+    //   res.end(data);
+    // });
+
+    // fs.readFile("./style/sub.css", "utf8", (err, data) => {
+    //   res.writeHead(200, { "Content-Type": "text/css" });
+    //   res.end(data);
+    // });
+
+    // fs.readFile("./style/main.css", "utf8", (err, data) => {
+    //   res.writeHead(200, { "Content-Type": "text/css" });
+    //   res.end(data);
+    // });
+
+    if (req.method === "POST" && req.url === "/") {
+      readFile("index.html", "text/html");
       let body = "";
       req.on("data", (chunk) => {
         body += chunk.toString();
@@ -40,6 +50,10 @@ http
           res.end(welcome + subPage);
         }
       });
+    } else if (req.method === "POST" && req.url === "/style/main.css") {
+      readFile("./style/main.css", "text/css");
+    } else if (req.method === "POST" && req.url === "/style/sub.css") {
+      readFile("./style/sub.css", "text/css");
     }
   })
   .listen(8000, () => {
