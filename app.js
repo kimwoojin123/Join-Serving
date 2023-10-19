@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const queryString = require("querystring");
-const mainPage = require("./module/mainpage");
+const subPage = require("./module/subpage");
 const signUpAsset = require("./module/signup");
 const idCheck = require("./idcheck");
 const pwCheck = require("./pwcheck");
@@ -22,16 +22,14 @@ http
       req.on("end", () => {
         const parseBody = queryString.parse(body);
         Object.assign(signUpAsset, parseBody);
-        console.log(parseBody);
-        console.log(signUpAsset);
-        console.log(signUpAsset.id);
         res.writeHead(200);
         if (
           idCheck(signUpAsset.id) === true &&
           pwCheck(signUpAsset.password, signUpAsset.password2) &&
           emailCheck(signUpAsset.email)
         ) {
-          res.end(mainPage);
+          let welcome = `<h1>${signUpAsset.id}님! 반갑습니다.<br>저에게 편지를 보내주세요!</h1>`;
+          res.end(welcome + subPage);
         }
       });
     }
