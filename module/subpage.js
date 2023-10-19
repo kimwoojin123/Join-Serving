@@ -8,8 +8,8 @@ const subPage = `<!DOCTYPE html>
 </head>
 <body>
   <form method="POST" action="/login">
-    Title <input type="text" id="title"><br>
-    Text <input type="text" id="text"><br>
+    Title <input type="text" id="title" name="title"><br>
+    Text <input type="text" id="text" name="text"><br>
     <input type="submit" value="send">
   </form>
 </body>
