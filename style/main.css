@@ -1,3 +1,24 @@
 #id {
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+}
+#password {
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+}
+#password2 {
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+}
+#email {
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
   background-color: #D9D9D9;
 }
