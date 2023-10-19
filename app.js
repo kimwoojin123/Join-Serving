@@ -3,7 +3,8 @@ const fs = require("fs");
 const queryString = require("querystring");
 const mainPage = require("./module/mainpage");
 const signUpAsset = require("./module/signup");
-// import idCheck from "./module/idcheck";
+const idCheck = require("./idcheck");
+const pwCheck = require("./pwcheck");
 
 http
   .createServer((req, res) => {
@@ -24,7 +25,7 @@ http
         console.log(signUpAsset);
         console.log(signUpAsset.id);
         res.writeHead(200);
-        if (idCheck(signUpAsset.id) === true) {
+        if (idCheck(signUpAsset.id) === true && pwCheck(signUpAsset.password, signUpAsset.password2)) {
           res.end(mainPage);
         }
       });
