@@ -2,6 +2,8 @@ const http = require("http");
 const fs = require("fs");
 const queryString = require("querystring");
 const mainPage = require("./module/mainpage");
+const signUpAsset = require("./module/signup");
+// import idCheck from "./module/idcheck";
 
 http
   .createServer((req, res) => {
@@ -17,10 +19,14 @@ http
       });
       req.on("end", () => {
         const parseBody = queryString.parse(body);
-        const { id, pw } = parseBody;
-        console.log(id);
+        Object.assign(signUpAsset, parseBody);
+        console.log(parseBody);
+        console.log(signUpAsset);
+        console.log(signUpAsset.id);
         res.writeHead(200);
-        res.end(mainPage);
+        if (idCheck(signUpAsset.id) === true) {
+          res.end(mainPage);
+        }
       });
     }
   })
