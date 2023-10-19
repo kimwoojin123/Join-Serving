@@ -49,8 +49,7 @@ http
           pwCheck(signUpAsset.password, signUpAsset.password2) &&
           emailCheck(signUpAsset.email)
         ) {
-          let welcome = `<h1>${signUpAsset.id}님! 반갑습니다.<br>저에게 편지를 보내주세요!</h1>`;
-          res.end(welcome + subPage);
+          res.end(subPage(signUpAsset.id));
         }
       });
     }
