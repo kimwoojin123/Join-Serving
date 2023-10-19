@@ -16,13 +16,25 @@ http
       });
     }
 
+    if (req.url === "/") {
+      readFile("index.html", "text/html");
+    } else if (req.url === "/style/main.css") {
+      fs.readFile("./style/main.css", "utf8", (err, data) => {
+        res.writeHead(200, { "Content-Type": "text/css" });
+        res.write(data);
+        return res.end();
+      });
+    }
+    // else if (req.url === "/style/sub.css" && req.method === "POST") {
+    //   fs.readFile("./style/sub.css", "utf8", (err, data) => {
+    //     res.writeHead(200, { "Content-Type": "text/css" });
+    //     res.write(data);
+    //     return res.end();
+    //   });
+    // }
+
     // fs.readFile("index.html", "utf8", (err, data) => {
     //   res.writeHead(200, { "Content-Type": "text/html" });
-    //   res.end(data);
-    // });
-
-    // fs.readFile("./style/sub.css", "utf8", (err, data) => {
-    //   res.writeHead(200, { "Content-Type": "text/css" });
     //   res.end(data);
     // });
 
@@ -31,8 +43,7 @@ http
     //   res.end(data);
     // });
 
-    if (req.method === "POST" && req.url === "/") {
-      readFile("index.html", "text/html");
+    if (req.method === "POST") {
       let body = "";
       req.on("data", (chunk) => {
         body += chunk.toString();
@@ -50,10 +61,6 @@ http
           res.end(welcome + subPage);
         }
       });
-    } else if (req.method === "POST" && req.url === "/style/main.css") {
-      readFile("./style/main.css", "text/css");
-    } else if (req.method === "POST" && req.url === "/style/sub.css") {
-      readFile("./style/sub.css", "text/css");
     }
   })
   .listen(8000, () => {
