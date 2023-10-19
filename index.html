@@ -4,63 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/style/main.css">
 </head>
 <body>
   <form method="POST">
-    ID <input type="text" name="id"><div id="iderror"></div><br>
-    PW <input type="text" name="pw"><br>
-    PW2 <input type="text" name="pw2"><div id="pwerror"></div><br>
-    Email <input type="text" name="email"><div id="emerror"></div><br>
-    <input type="submit" name="submit" value="Sign Up">
+    ID <input type="text" id ="id" name="id"><br>
+    PW <input type="text" id="password" name="password"><br>
+    PW2 <input type="text" id="password2" name="password2"><br>
+    Email <input type="text" id="email" name="email"><br>
+    <input type="submit" id ="submit" name="submit" value="Sign Up">
   </form>
 <script>
-    // let id = document.getElementsByName("id");
-    // let idError = document.getElementById("iderror");
-    // let pw = document.getElementsByName("pw");
-    // let pw2 = document.getElementsByName("pw2");
-    // let pwError = document.getElementById("pwerror");
-    // let email = document.getElementsByName("email");
-    // let emailError = document.getElementById("emerror");
-    // let submit = document.getElementsByName("submit");
-    // let idValue = id.value;
-    // let idStr = idValue.split("");
-    // let emailValue = email.value;
-    // let emStr = emailValue.split("");
-    // let atSignIndex = emStr.indexOf("@");
-
-
-    
-    // const idUpper = idStr.find((elem) => {
-    //   return elem === elem.toUpperCase();
-    // });
-
-    // const idLower = idStr.find((elem) => {
-    //   return elem === elem.toLowerCase();
-    // });
-
-    // const emAtsign = emStr.includes("@");
-    // const emDot = emStr.includes(".", atSignIndex);
-
-    // function idCheck() {
-    //   if (idUpper === undefined && idLower === undefined) {
-    //     idError.textContent = "대문자나 소문자가 포함되어야 합니다.";
-    //   }
-    // }
-
-    // function pwCheck() {
-    //   if (pw.value !== pw2.value) {
-    //     pwError.textContent = "비밀번호가 일치하지 않습니다.";
-    //   }
-    // }
-
-    // function emCheck() {
-    //   if (emAtsign === false && emDot === false) {
-    //     emailError.textContent = "이메일 형식이 맞지 않습니다.";
-    //   }
-    // }
-    // idCheck()
-    // pwCheck()
-    // emCheck()
 </script>
 </body>
 </html>

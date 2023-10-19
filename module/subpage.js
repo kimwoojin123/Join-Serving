@@ -4,12 +4,12 @@ const subPage = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./style/sub.css">
+  <link rel="stylesheet" href="/style/sub.css">
 </head>
 <body>
   <form method="POST" action="/login">
-    Title <input type="text" id="title">
-    Text <input type="text" id="text">
+    Title <input type="text" id="title"><br>
+    Text <input type="text" id="text"><br>
     <input type="submit" value="send">
   </form>
 </body>
