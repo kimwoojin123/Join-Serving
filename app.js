@@ -5,6 +5,7 @@ const mainPage = require("./module/mainpage");
 const signUpAsset = require("./module/signup");
 const idCheck = require("./idcheck");
 const pwCheck = require("./pwcheck");
+const emailCheck = require("./emailcheck");
 
 http
   .createServer((req, res) => {
@@ -25,7 +26,11 @@ http
         console.log(signUpAsset);
         console.log(signUpAsset.id);
         res.writeHead(200);
-        if (idCheck(signUpAsset.id) === true && pwCheck(signUpAsset.password, signUpAsset.password2)) {
+        if (
+          idCheck(signUpAsset.id) === true &&
+          pwCheck(signUpAsset.password, signUpAsset.password2) &&
+          emailCheck(signUpAsset.email)
+        ) {
           res.end(mainPage);
         }
       });
