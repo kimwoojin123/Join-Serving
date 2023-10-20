@@ -1,12 +1,13 @@
 function idCheck(obj) {
   let idStr = obj.split("");
-  let idUpper = idStr.find((elem) => {
-    return elem === elem.toUpperCase();
-  });
-  let idLower = idStr.find((elem) => {
-    return elem === elem.toLowerCase();
-  });
-  if (idUpper !== undefined && idLower !== undefined) {
+  let upIdStr = obj.toUpperCase();
+  let upId = upIdStr.split("");
+  let lowIdStr = obj.toLowerCase();
+  let lowId = lowIdStr.split("");
+  let arr = [];
+  let idUpper = idStr.filter((elem) => upId.includes(elem));
+  let idLower = idStr.filter((elem) => lowId.includes(elem));
+  if (idUpper !== arr && idLower !== arr) {
     return true;
   }
 }
