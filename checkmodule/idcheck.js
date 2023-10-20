@@ -7,7 +7,7 @@ function idCheck(obj) {
   let arr = [];
   let idUpper = idStr.filter((elem) => upId.includes(elem));
   let idLower = idStr.filter((elem) => lowId.includes(elem));
-  if (idUpper !== arr && idLower !== arr) {
+  if (idUpper.toString() !== arr.toString() && idLower.toString() !== arr.toString()) {
     return true;
   }
 }
